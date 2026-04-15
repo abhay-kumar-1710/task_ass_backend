@@ -8,7 +8,7 @@ connectDB();
 app.get("/", (req, res) => {
   res.send("Training Institute API Running 🚀");
 });
-
+app.set("trust proxy", 1);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
