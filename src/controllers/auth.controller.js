@@ -46,8 +46,9 @@ async function loginUserController(req, res) {
 
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "none", 
-      secure: true,     
+      secure: true,       
+      sameSite: "none",    
+      path: "/",           
     });
 
     res.json({
@@ -84,12 +85,12 @@ async function getUserCount(req, res) {
 
 async function logoutUserController(req, res) {
   try {
-    res.clearCookie("token", {
-        httpOnly: true,
-        sameSite: "none",
-        secure: true,
-      });
-
+   res.clearCookie("token", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      path: "/",
+    });
     res.json({ message: "Logged out successfully" });
   } catch (err) {
     res.status(500).json({ message: "Logout failed" });
