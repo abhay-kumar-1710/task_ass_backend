@@ -46,8 +46,8 @@ async function loginUserController(req, res) {
 
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "lax", // 🔥 important for cross-origin
-      // secure: false,
+      sameSite: "none", 
+      secure: true,     
     });
 
     res.json({
@@ -85,10 +85,10 @@ async function getUserCount(req, res) {
 async function logoutUserController(req, res) {
   try {
     res.clearCookie("token", {
-      httpOnly: true,
-      sameSite: "lax", // same as login
-      // secure: false, // true in production
-    });
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+      });
 
     res.json({ message: "Logged out successfully" });
   } catch (err) {
