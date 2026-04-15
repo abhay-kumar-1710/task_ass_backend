@@ -10,7 +10,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:5173", 
+    origin: "https://dancing-snickerdoodle-fbb37b.netlify.app", 
     credentials: true,
   }),
 );
