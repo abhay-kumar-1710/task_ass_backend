@@ -7,7 +7,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
-
+app.set("trust proxy", 1);
 app.use(
   cors({
     origin: "https://dancing-snickerdoodle-fbb37b.netlify.app", 
